@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "new_schema";
+$dbname = "postOfToday";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,13 +27,13 @@ $sql = "UPDATE posts SET total_rate=$total_rate WHERE id=$id";
 
 if ($conn->query($sql) === TRUE) {
     echo "New rate added";
+    // Commit transaction
     mysqli_commit($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-// Commit transaction
-mysqli_commit($conn);
+
 $conn->close();
 
 

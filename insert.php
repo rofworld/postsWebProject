@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "new_schema";
+$dbname = "postOfToday";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,13 +20,14 @@ VALUES ($value,0)";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    // Commit transaction
     mysqli_commit($conn);
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-// Commit transaction
-mysqli_commit($conn);
+
+
 $conn->close();
 
 

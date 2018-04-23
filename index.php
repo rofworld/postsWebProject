@@ -34,7 +34,24 @@
 	<div class="rowPrincipal">
 		<h3>The post of yesterday was:</h3><br>
 		<textarea rows='5' class='postOfTheDay' maxlength='250' disabled>
-Impossible is nothing
+<?php
+    	$servername = "localhost";
+    	$username = "root";
+    	$password = "";
+    	$dbname = "postOfToday";
+    	// Create connection
+    	$conn = new mysqli($servername, $username, $password, $dbname);
+    	// Check connection
+    	if ($conn->connect_error) {
+    	    die("Connection failed: " . $conn->connect_error);
+    	}
+    	
+    	$resultado = mysqli_query($conn,"SELECT post_of_the_day FROM post_of_the_day");
+    	while ($fila = mysqli_fetch_array($resultado, 2)) {
+    	   $postOfTheDay = $fila[0];
+    	}
+    	echo $postOfTheDay;
+?>   	    
 		</textarea>
 	</div>
 	
@@ -45,7 +62,7 @@ Impossible is nothing
 	
 	<button type="button" id="addButton" class="btn btn-primary">Add</button>
 	
-	<textarea class="form-control" rows="5" id="post" maxlength="150"></textarea>
+	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
 	
 	<script type="text/javascript">
 		$("#addButton").click(function() {
@@ -79,7 +96,7 @@ Impossible is nothing
     	$servername = "localhost";
     	$username = "root";
     	$password = "";
-    	$dbname = "new_schema";
+    	$dbname = "postOfToday";
     	// Create connection
     	$conn = new mysqli($servername, $username, $password, $dbname);
     	// Check connection

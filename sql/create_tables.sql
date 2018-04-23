@@ -1,6 +1,9 @@
+CREATE SCHEMA postOfToday;
+
+
 CREATE TABLE posts (
      id MEDIUMINT NOT NULL AUTO_INCREMENT,
-     posts VARCHAR(255) NOT NULL,
+     posts VARCHAR(255) UNIQUE NOT NULL,
      total_rate bigint NOT NULL,
      PRIMARY KEY (id)
 );
