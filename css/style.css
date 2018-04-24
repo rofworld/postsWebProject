@@ -8,6 +8,7 @@
 	margin-left: 5%;
 }
 
+
 #addButton{
 	width:20%;
 	height:15%;
@@ -32,7 +33,7 @@
 
 .postOfTheDay{
 	width:65%;
-	height:15%;
+	height:23%;
 	resize: none;
 	background-color: white;
 	border: dotted;

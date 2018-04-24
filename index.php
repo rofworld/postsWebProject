@@ -24,8 +24,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">Post of today</a>
-              <a class="nav-item nav-link" href="#">Best posts</a>
+              <a class="nav-item nav-link active" href="index.php">Post of today</a>
+              <a class="nav-item nav-link" href="bestPosts.php">Best posts</a>
             </div>
           </div>
 	</nav>
@@ -47,40 +47,44 @@
     	}
     	
     	$resultado = mysqli_query($conn,"SELECT post_of_the_day FROM post_of_the_day");
-    	while ($fila = mysqli_fetch_array($resultado, 2)) {
+    	$postOfTheDay=null;
+    	if ($fila = mysqli_fetch_array($resultado, 2)) {
     	   $postOfTheDay = $fila[0];
     	}
-    	echo $postOfTheDay;
+    	if ($postOfTheDay!=null){
+    	   echo $postOfTheDay;
+    	}
 ?>   	    
 		</textarea>
 	</div>
 	
+	<br>
 	<div class="row">
-		<h4>write your post here:</h4>
+		<h5>write your post here:</h5>
 	</div>
 	<div class="row">
 	
-	<button type="button" id="addButton" class="btn btn-primary">Add</button>
-	
-	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
-	
-	<script type="text/javascript">
-		$("#addButton").click(function() {
-			xmlhttp=new XMLHttpRequest();
-			xmlhttp.onreadystatechange=function() {
-			    if (this.readyState==4 && this.status==200) {
-			      //$("#txtHint").html(this.responseText);
-					console.log(this.responseText);
-					location.reload();
-			    }
-			}
-			var params="text="  + $("#post").val()
-			xmlhttp.open("POST","insert.php",true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-			xmlhttp.send(params);
-			
-		});
-  	</script>
+    	<button type="button" id="addButton" class="btn btn-primary">Add</button>
+    	
+    	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
+    	
+    	<script type="text/javascript">
+    		$("#addButton").click(function() {
+    			xmlhttp=new XMLHttpRequest();
+    			xmlhttp.onreadystatechange=function() {
+    			    if (this.readyState==4 && this.status==200) {
+    			      //$("#txtHint").html(this.responseText);
+    					console.log(this.responseText);
+    					location.reload();
+    			    }
+    			}
+    			var params="text="  + $("#post").val()
+    			xmlhttp.open("POST","insert.php",true);
+    			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+    			xmlhttp.send(params);
+    			
+    		});
+      	</script>
 	
 	
 	</div> 
@@ -90,6 +94,8 @@
 		<div id="txtHint"><b></b></div>
 	</div>
 	 -->
+	 
+	 <br>
 	<div class="row">
 	
 	<?php
@@ -182,26 +188,59 @@
 	?>
 	<script type="text/javascript">
 		$('[type=radio]').change(function() {
-			/* find row position */
+			/* find post */
 			var post = $(this).parent().parent().parent().parent().find("textarea").val();
 			console.log(post);
 			
-			//var post="La vida es una tombola";
-			xmlhttp=new XMLHttpRequest();
-			xmlhttp.onreadystatechange=function() {
-			    if (this.readyState==4 && this.status==200) {
-			      //$("#txtHint").html(this.responseText);
-			      	console.log(this.responseText);
-			    	
-			    }
+			var votedPosts = "[]";
+			//Examine wether SessionStorage is set
+			if (sessionStorage.getItem('votedPosts')!=null){
+    			
+    			var votedPosts = sessionStorage.getItem('votedPosts');
 			}
-			var params="post="  + post + "&" + "rate=" + this.value;
 
-			xmlhttp.open("POST","insertRate.php",true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-			xmlhttp.send(params);
-			alert('New star rating: ' + this.value + ' and the post is: ' + post);
-			location.reload();
+			console.log("This are the already voted posts:")
+			console.log(votedPosts);
+
+			var isVoted=false;
+		
+			votedPosts=JSON.parse(votedPosts);
+			console.log("Recorriendo Array")
+			//Examine if the post is already voted
+			for (var x=0;x<votedPosts.length;x++){
+				console.log(votedPosts[x]);
+				if (votedPosts[x]==post){
+			    	isVoted=true; 
+				}
+			}  
+			console.log("is Voted = " + isVoted);
+			
+			if (isVoted==false){
+			
+		
+    			xmlhttp=new XMLHttpRequest();
+    			xmlhttp.onreadystatechange=function() {
+    			    if (this.readyState==4 && this.status==200) {
+    			      //$("#txtHint").html(this.responseText);
+    			      	console.log(this.responseText);
+    			    	
+    			    }
+    			}
+    			var params="post="  + post + "&" + "rate=" + this.value;
+    
+    			xmlhttp.open("POST","insertRate.php",true);
+    			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
+    			xmlhttp.send(params);
+    			alert('New star rating: ' + this.value + ' and the post is: ' + post);
+    			//push array
+    			votedPosts.push(post);
+    			//Set SessionStorage
+    			sessionStorage.setItem('votedPosts',JSON.stringify(votedPosts));
+    			
+    			location.reload();
+			}else{
+				alert('You already voted for this post');
+			}
 		  	
 		});
 	</script>
