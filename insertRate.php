@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "pollo0123";
 $dbname = "postOfToday";
 
 // Create connection
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 $myarray = &$_POST ;
 
-$post = ""."'".$myarray["post"]."'" ;
+$post = "".'"'.$myarray["post"].'"' ;
 
 $rate = $myarray["rate"];
 

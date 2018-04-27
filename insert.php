@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "pollo0123";
 $dbname = "postOfToday";
 
 // Create connection
@@ -13,19 +13,22 @@ if ($conn->connect_error) {
 }
 $myarray = &$_POST ; 
 
+if ($myarray["text"]!=null && $myarray["text"]!=""){
 
-$value = ""."'".$myarray["text"]."'" ;
-$sql = "INSERT INTO posts (posts,total_rate)
-VALUES ($value,0)";
+        $value = "".'"'.$myarray["text"].'"';
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    // Commit transaction
-    mysqli_commit($conn);
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+
+        $sql = "INSERT INTO posts (posts,total_rate)
+        VALUES ($value,0)";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+            // Commit transaction
+            mysqli_commit($conn);
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
 }
-
 
 
 $conn->close();

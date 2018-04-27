@@ -37,7 +37,7 @@
 <?php
     	$servername = "localhost";
     	$username = "root";
-    	$password = "";
+    	$password = "pollo0123";
     	$dbname = "postOfToday";
     	// Create connection
     	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -101,7 +101,7 @@
 	<?php
     	$servername = "localhost";
     	$username = "root";
-    	$password = "";
+    	$password = "pollo0123";
     	$dbname = "postOfToday";
     	// Create connection
     	$conn = new mysqli($servername, $username, $password, $dbname);
