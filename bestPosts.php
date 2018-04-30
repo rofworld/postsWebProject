@@ -26,6 +26,8 @@
             <div class="navbar-nav">
               <a class="nav-item nav-link " href="index.php">Post of today</a>
               <a class="nav-item nav-link active" href="bestPosts.php">Best posts</a>
+              <a class="nav-item nav-link" href="videoOfToday.php">Video of today</a>
+              <a class="nav-item nav-link" href="bestVideos.php">Best videos</a>
             </div>
           </div>
 	</nav>
@@ -44,7 +46,7 @@
     	    die("Connection failed: " . $conn->connect_error);
     	}
     	
-    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM best_posts ORDER BY total_rate DESC");
+    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM postOfToday.best_posts ORDER BY total_rate DESC");
     	echo "<h3>Best Posts</h3>";
     	echo "<table class='table'>";
     	echo "<thead>"; 

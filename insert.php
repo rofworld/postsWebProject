@@ -15,11 +15,11 @@ $myarray = &$_POST ;
 
 if ($myarray["text"]!=null && $myarray["text"]!=""){
 
-        $value = "".'"'.$myarray["text"].'"';
+        $value = mysqli_real_escape_string($conn,strval($myarray["text"]));
 
 
-        $sql = "INSERT INTO posts (posts,total_rate)
-        VALUES ($value,0)";
+        $sql = "INSERT INTO postOfToday.posts (posts,total_rate)
+        VALUES ('$value',0)";
         
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";

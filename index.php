@@ -15,6 +15,8 @@
 
 </head>
 
+<?php include 'var_html_rate.php';?>
+
 <body>
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,6 +28,8 @@
             <div class="navbar-nav">
               <a class="nav-item nav-link active" href="index.php">Post of today</a>
               <a class="nav-item nav-link" href="bestPosts.php">Best posts</a>
+              <a class="nav-item nav-link" href="videoOfToday.php">Video of today</a>
+              <a class="nav-item nav-link" href="bestVideos.php">Best videos</a>
             </div>
           </div>
 	</nav>
@@ -46,7 +50,7 @@
     	    die("Connection failed: " . $conn->connect_error);
     	}
     	
-    	$resultado = mysqli_query($conn,"SELECT post_of_the_day FROM post_of_the_day");
+    	$resultado = mysqli_query($conn,"SELECT post_of_the_day FROM postOfToday.post_of_the_day");
     	$postOfTheDay=null;
     	if ($fila = mysqli_fetch_array($resultado, 2)) {
     	   $postOfTheDay = $fila[0];
@@ -63,10 +67,10 @@
 		<h5>write your post here:</h5>
 	</div>
 	<div class="row">
-	
-    	<button type="button" id="addButton" class="btn btn-primary">Add</button>
     	
     	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
+    	
+    	<button type="button" id="addButton" class="btn btn-primary">Add</button>
     	
     	<script type="text/javascript">
     		$("#addButton").click(function() {
@@ -99,19 +103,9 @@
 	<div class="row">
 	
 	<?php
-    	$servername = "localhost";
-    	$username = "root";
-    	$password = "pollo0123";
-    	$dbname = "postOfToday";
-    	// Create connection
-    	$conn = new mysqli($servername, $username, $password, $dbname);
-    	// Check connection
-    	if ($conn->connect_error) {
-    	    die("Connection failed: " . $conn->connect_error);
-    	}
     	
-    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM posts ORDER BY total_rate DESC");
-    	echo "<h3>This are the user posts</h3>";
+    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM postOfToday.posts ORDER BY total_rate DESC");
+    	echo "<h3>This are the posts of Today</h3>";
     	echo "<table class='table'>";
     	echo "<thead>"; 
     	   echo "<tr>";
@@ -142,42 +136,7 @@
     	           
     	           
     	           echo "<td>";
-    	               echo "
-                        
-                        <form class='rating'>
-  <label>
-    <input type='radio' name='stars' value='1' />
-    <span class='icon'>★</span>
-  </label>
-  <label>
-    <input type='radio' name='stars' value='2' />
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-  </label>
-  <label>
-    <input type='radio' name='stars' value='3' />
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>   
-  </label>
-  <label>
-    <input type='radio' name='stars' value='4' />
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-  </label>
-  <label>
-    <input type='radio' name='stars' value='5' />
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-    <span class='icon'>★</span>
-  </label>
-</form>
-
-";
+    	               echo $var_html_rate;
     	           echo "</td>";
     	       echo "</tr>";
     	       
@@ -231,7 +190,7 @@
     			xmlhttp.open("POST","insertRate.php",true);
     			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
     			xmlhttp.send(params);
-    			alert('New star rating: ' + this.value + ' and the post is: ' + post);
+    			//alert('New star rating: ' + this.value + ' and the post is: ' + post);
     			//push array
     			votedPosts.push(post);
     			//Set SessionStorage

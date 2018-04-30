@@ -1,0 +1,54 @@
+.rowPrincipal{
+	margin-top: 5%;
+	margin-left: 23%;
+}
+
+.row{
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+
+#addButton{
+	width:20%;
+	height:50px;
+	font-size: large;
+	margin-left: 6%;
+}
+
+#filePath{
+	width:60%;
+	height:50px;
+	resize: none;
+	margin-left: 2%;
+	background-color: white;
+}
+
+#fileUploadButton{
+	width:5%;
+	height:50px;
+	
+}
+
+.videoShow{
+	width:400px;
+	height:300px;
+}
+
+
+.videoOfTheDay{
+		width:400px;
+		height:300px;
+}
+
+.table{
+	margin-top: 5%;
+}
+
+input[type="radio"] {
+    margin-left:10px;
+}
+
+.rateShowing{
+	whidth:25%;
+}
