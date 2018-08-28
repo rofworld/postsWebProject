@@ -1,3 +1,8 @@
+html, body
+{
+	height: 100%;
+}
+
 .rowPrincipal{
 	margin-top: 5%;
 	margin-left: 23%;
@@ -51,4 +56,55 @@ input[type="radio"] {
 
 .rateShowing{
 	whidth:25%;
+}
+
+.popup-content{
+  /*Hides pop-up content when there is no "active" class */
+ visibility:hidden;
+ 
+
+ 
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility:visible;
+}
+
+.popup-overlay{
+  /*Hides pop-up when there is no "active" class*/
+  visibility:hidden;
+  text-align:center;
+  position:fixed;
+  background:#ffffff;
+  border:3px solid #666666;
+  width:50%;
+  height:50%;
+  top:25%;
+  left:25%;
+  
+  z-index: 1;
+ 
+}
+.popup-overlay.active{
+  /*displays pop-up when "active" class is present*/
+  visibility:visible;
+  
+}
+
+.loader {
+	display:block;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+   	margin-left:40%;
+   	margin-top:10%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

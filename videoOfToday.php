@@ -35,7 +35,13 @@
           </div>
 	</nav>
 	
-	
+	<div class="popup-overlay">
+        <!--Creates the popup content-->
+       	<div  class="popup-content">
+          <h2>Uploading video...</h2>
+          <div class="loader"></div>
+        </div>
+	</div>
 	<div class="rowPrincipal">
 		<h3>The video of yesterday was:</h3><br>
 		<video class="videoOfTheDay" controls>
@@ -61,7 +67,7 @@
 	
 	<br>
 	<div class="row">
-		<h5>Upload your video here (mp4, ogv, webm) MAX: 30Mbytes</h5>
+		<h5>Upload your video here (mp4, ogv, webm) MAX: 120Mbytes</h5>
 	</div>
 	<div class="row">
 		
@@ -99,7 +105,7 @@
     				console.log("fileName = " + $("#videoFile")[0].files[0].name + ". File Size = " + $("#videoFile")[0].files[0].size);
     				if (isVideo(fileName)){
     					//console.log("Is video");
-        				if ($("#videoFile")[0].files[0].size < 30000000){
+        				if ($("#videoFile")[0].files[0].size < 120000000){
             				currentDate = new Date();
             				currentDate = new Date(currentDate.getFullYear(),currentDate.getMonth(),currentDate.getDate());
             				var saveDate="[]";
@@ -141,11 +147,13 @@
             				
         					console.log("is Uploaded = " + isUploaded);
         					
-        					if (isUploaded==false){
+        					//if (isUploaded==false){
+        						  openDialog();
         						  var fd = new FormData();
         						  fd.append("videoFile", $("#videoFile")[0].files[0]);
         						  
         						  // These extra params aren't necessary but show that you can include other data.
+        						  
         						  var xhr = new XMLHttpRequest();
         						  xhr.open('POST', 'insertVideo.php', true);
         						  
@@ -163,7 +171,7 @@
             				    			saveDate = [ currentDate ]; 
             				    			//Set SessionStorage
             				    			localStorage.setItem('saveDate',JSON.stringify(saveDate));
-            				    			
+            				    			closeDialog();
             				    			location.reload();
         								}else{
             								alert("You reached the maximum number of videos allowed in the server");
@@ -173,11 +181,11 @@
         						  xhr.send(fd);
         		    					
             					
-        					}else{
-            					alert("You already uploaded a video today");
-        					}
+        					//}else{
+            				//	alert("You already uploaded a video today");
+        					//}
         				}else{
-        					alert("The video size is over 30Mbytes")
+        					alert("The video size is over 120Mbytes")
         				}
     				}else{
     					alert("The file selected is not a valid video");
@@ -205,9 +213,17 @@
     			    }
     			    return false;
     			}
+    			function openDialog() {
+                    
+    				$(".popup-overlay, .popup-content").addClass("active");
+                        
+                }
+                
+                function closeDialog() {
+                	$(".popup-overlay, .popup-content").removeClass("active");
+                }
     		});
       	</script>
-	       
 	
 	</div> 
 	

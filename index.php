@@ -70,7 +70,7 @@
     	
     	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
     	
-    	<button type="button" id="addButton" class="btn btn-primary">Add</button>
+    	<button type="button" id="addButton" class="btn btn-primary">Add Post</button>
     	
     	<script type="text/javascript">
     		$("#addButton").click(function() {
