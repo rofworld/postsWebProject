@@ -18,18 +18,37 @@
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">PostOfToday</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link " href="index.php">Post of today</a>
-              <a class="nav-item nav-link active" href="bestPosts.php">Best posts</a>
-              <a class="nav-item nav-link" href="videoOfToday.php">Video of today</a>
-              <a class="nav-item nav-link" href="bestVideos.php">Best videos</a>
+      <a class="navbar-brand" href="#">PostOfToday</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Posts
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="postOfToday.php">Posts</a>
+              <a class="dropdown-item" href="bestPosts.php">Bests Posts</a>
             </div>
-          </div>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Videos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="videoOfToday.php">Videos</a>
+              <a class="dropdown-item" href="bestVideos.php">Bests Videos</a>
+            </div>
+            
+          </li>
+        </ul>
+      </div>
 	</nav>
 
 <div class="row">

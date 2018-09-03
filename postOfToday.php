@@ -1,7 +1,4 @@
-<?php 
-    include 'pathVariables.php';
-    include 'var_html_rate.php';
-?>
+
 <html>
 
 <head>
@@ -12,13 +9,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="css/styleVideos.css"/>
+
+
+<link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/rating.css"/>
 
 </head>
 
+<?php include 'var_html_rate.php';?>
 
 <body>
+	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">PostOfToday</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,19 +53,22 @@
         </ul>
       </div>
 	</nav>
+
 	
-	<div class="popup-overlay">
-        <!--Creates the popup content-->
-       	<div  class="popup-content">
-          <h2>Uploading video...</h2>
-          <div class="loader"></div>
-        </div>
+	
+	<!-- 
+	<div class="row">
+		<div id="txtHint"><b></b></div>
 	</div>
-	
+	 -->
+	 
+	 <br>
 	<div class="tablePosts">
 	
+	<div class="row">
 	
 	<?php
+    	
     	$servername = "localhost";
     	$username = "root";
     	$password = "pollo0123";
@@ -75,16 +79,15 @@
     	if ($conn->connect_error) {
     	    die("Connection failed: " . $conn->connect_error);
     	}
-    	$resultado = mysqli_query($conn,"SELECT * FROM videoOfToday.videos ORDER BY total_rate DESC");
-    	//echo "<h3>This are the videos of today</h3>";
+    	
+	
+    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM postOfToday.posts ORDER BY total_rate DESC");
+    	//echo "<h3>This are the posts of Today</h3>";
     	echo "<table class='table'>";
     	echo "<thead>"; 
     	   echo "<tr>";
     	       echo "<td>";
-    	           echo "<b>Videos</b>";
-    	       echo "</td>";
-    	       echo "<td hidden>";
-    	           echo "<b>Id</b>";
+    	           echo "<b>Posts</b>";
     	       echo "</td>";
     	       echo "<td>";
     	           echo "<b>Total Hits</b>";
@@ -100,20 +103,16 @@
     	    echo "<tbody>";
     	       echo "<tr>";
     	           echo "<td>";
-    	               echo "<video class='videoShow' controls>
-  			                       <source src='".$fila[1]."' type='".$fila[3]."'>
-  		                    </video>";
-    	           echo "</td>";
-    	           echo "<td hidden>";
-    	               echo "<div class='idVideo'>";
+    	               echo "<textarea rows='5' class='postShow' maxlength='250' disabled>";
     	                   echo $fila[0];
-    	               echo "</div>";
-                   echo "</td>";
+    	               echo "</textarea>";
+    	           echo "</td>";
     	           echo "<td>";
-    	               echo $fila[4];
+    	               echo $fila[1];
                    echo "</td>";
     	           
-    	           echo "<td class='rateShowing'>";
+    	           
+    	           echo "<td>";
     	               echo $var_html_rate;
     	           echo "</td>";
     	       echo "</tr>";
@@ -124,37 +123,28 @@
         echo "</table>";
 	?>
 	
-	
+	</div>
 	</div>
 	
 	<div class="form">
-	<div class="row">
-		<h5>Upload your video here (mp4, ogv, webm) MAX: 120Mbytes</h5>
+			<!-- 
+			<div class="row">
+				<h5>write your post here:</h5>
+			</div>
+			-->
+        	<div class="row">
+        		
+            	
+            	<textarea class="form-control" rows="5" id="post" maxlength="200"></textarea>
+            	
+            	<button type="button" id="addButton" class="btn btn-primary">Add Post</button>
+            	
+        	
+        	
+        	</div> 
 	</div>
-	<div class="row">
-		
-		
-		<button type="button" id="fileUploadButton" class="btn btn-primary">...</button>
-    
-    	<textarea class="form-control" rows="1" id="filePath" maxlength="200" disabled></textarea>
-    	
-    	<button type="button" id="addButton" class="btn btn-primary">Add Video</button>
-    	
-    	<input type="file" id="videoFile" style="display:none">
-    	
-    	
-	
-	</div> 
-	</div>
-	<!-- 
-	<div class="row">
-		<div id="txtHint"><b></b></div>
-	</div>
-	 -->
-	 
-<script src="js/videosController.js"></script>	
+<script src="js/postsController.js"></script>	
 </body>
 
 
 </html>
-

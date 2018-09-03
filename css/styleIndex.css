@@ -1,0 +1,43 @@
+.row{
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+.posts{
+	text-align: justify;
+}
+
+.videos{
+	text-align: justify;
+}
+
+.photos{
+	text-align: justify;
+}
+
+.rowPrincipal{
+	margin-top: 5%;
+	margin-left: 5%;
+}
+
+.postOfTheDay{
+	text-align: center;
+	font-style: italic;	
+	vertical-align:middle;
+	width:100%;
+	height:23%;
+	resize: none;
+	background-color: white;
+	border: none;
+	border-color: #c0c0c0;
+	overflow: hidden;
+	color: #525252;
+	font-size: x-large;
+	
+}
+
+.videoOfTheDay{
+		width:400px;
+		height:300px;
+		margin-left:25%;
+}
