@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="css/rating.css"/>
 
+<title>Post of today ranking</title>
+
+<meta name="description" content="Here you see the ranking of the posts of the day. These are the posts written today by users. Rate them and we will see the winner tomorrow"/>
+
+<meta name="keywords" content="post of today, ranking posts, post of today ranking"/>
+
 </head>
 
 <?php include 'var_html_rate.php';?>

@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="css/styleVideos.css"/>
 <link rel="stylesheet" href="css/rating.css"/>
 
+<title>Video of today ranking</title>
+
+<meta name="description" content="Here you see the ranking of the videos of the day. These are the posts written today by users. Rate them and we will see the winner tomorrow"/>
+
+<meta name="keywords" content="video of today, ranking videos, video of today ranking, rate videos"/>
+
 </head>
 
 

@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="css/styleVideos.css"/>
 <link rel="stylesheet" href="css/rating.css"/>
 
+<title>Best Videos</title>
+
+<meta name="description" content="These are the best videos. The videos winners every day are moved to this section"/>
+
+<meta name="keywords" content="best videos, post of today best videos"/>
 </head>
 
 

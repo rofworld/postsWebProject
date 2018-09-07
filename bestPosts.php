@@ -12,6 +12,12 @@
 
 <link rel="stylesheet" href="css/style.css"/>
 
+<title>Best Posts</title>
+
+<meta name="description" content="These are the best posts. The posts winners every day are moved to this section"/>
+
+<meta name="keywords" content="best posts, post of today best posts"/>
+
 </head>
 
 <body>

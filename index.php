@@ -8,6 +8,12 @@
 
 <link rel="stylesheet" href="css/styleIndex.css"/>
 
+<title>Post of today HomePage</title>
+
+<meta name="description" content="Here you see the description of the webpage with its sections. The sections are posts, videos and photos. In each section you can see the post, video and photo winner yesterday"/>
+
+<meta name="keywords" content="post of today, postoftoday, post of today homepage, postoftoday homepage"/>
+
 </head>
 
 <body>

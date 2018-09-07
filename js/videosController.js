@@ -6,7 +6,7 @@
 			
 			var votedIDS = "[]";
 			//Examine wether SessionStorage is set
-			if (sessionStorage.getItem('votedIDS')!=null){
+			if (localStorage.getItem('votedIDS')!=null){
     			
     			var votedIDS = sessionStorage.getItem('votedIDS');
 			}
@@ -39,7 +39,7 @@
     	    			//push array
     	    			votedIDS.push(id);
     	    			//Set SessionStorage
-    	    			sessionStorage.setItem('votedIDS',JSON.stringify(votedIDS));
+    	    			localStorage.setItem('votedIDS',JSON.stringify(votedIDS));
     	    			
     	    			location.reload();
     			    	

@@ -5,7 +5,7 @@ $('[type=radio]').change(function() {
 			
 			var votedPosts = "[]";
 			//Examine wether SessionStorage is set
-			if (sessionStorage.getItem('votedPosts')!=null){
+			if (localStorage.getItem('votedPosts')!=null){
     			
     			var votedPosts = sessionStorage.getItem('votedPosts');
 			}
@@ -46,7 +46,7 @@ $('[type=radio]').change(function() {
     			//push array
     			votedPosts.push(post);
     			//Set SessionStorage
-    			sessionStorage.setItem('votedPosts',JSON.stringify(votedPosts));
+    			localStorage.setItem('votedPosts',JSON.stringify(votedPosts));
     			
     			location.reload();
 			}else{
