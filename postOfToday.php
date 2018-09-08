@@ -87,13 +87,16 @@
     	}
     	
 	
-    	$resultado = mysqli_query($conn,"SELECT posts,total_rate FROM postOfToday.posts ORDER BY total_rate DESC");
+    	$resultado = mysqli_query($conn,"SELECT id,posts,total_rate FROM postOfToday.posts ORDER BY total_rate DESC");
     	//echo "<h3>This are the posts of Today</h3>";
     	echo "<table class='table'>";
     	echo "<thead>"; 
     	   echo "<tr>";
     	       echo "<td>";
     	           echo "<b>Posts</b>";
+    	       echo "</td>";
+    	       echo "<td hidden>";
+    	           echo "<b>Id</b>";
     	       echo "</td>";
     	       echo "<td>";
     	           echo "<b>Total Hits</b>";
@@ -110,11 +113,16 @@
     	       echo "<tr>";
     	           echo "<td>";
     	               echo "<textarea rows='5' class='postShow' maxlength='250' disabled>";
-    	                   echo $fila[0];
+    	                   echo $fila[1];
     	               echo "</textarea>";
     	           echo "</td>";
+    	           echo "<td hidden>";
+    	               echo "<div class='idPost'>";
+    	                   echo $fila[0];
+    	               echo "</div>";
+    	           echo "</td>";
     	           echo "<td>";
-    	               echo $fila[1];
+    	               echo $fila[2];
                    echo "</td>";
     	           
     	           

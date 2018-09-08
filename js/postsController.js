@@ -1,26 +1,26 @@
 $('[type=radio]').change(function() {
 			/* find post */
-			var post = $(this).parent().parent().parent().parent().find("textarea").val();
-			console.log(post);
+			var id = $(this).closest("tr").find(".idPost").html();
+			console.log(id);
 			
-			var votedPosts = "[]";
+			var votedIDS = "[]";
 			//Examine wether SessionStorage is set
-			if (localStorage.getItem('votedPosts')!=null){
+			if (localStorage.getItem('votedIDS')!=null){
     			
-    			var votedPosts = sessionStorage.getItem('votedPosts');
+    			var votedIDS = localStorage.getItem('votedIDS');
 			}
 
 			console.log("This are the already voted posts:")
-			console.log(votedPosts);
+			console.log(votedIDS);
 
 			var isVoted=false;
-		
-			votedPosts=JSON.parse(votedPosts);
+			
+			votedIDS=JSON.parse(votedIDS);
 			console.log("Recorriendo Array")
 			//Examine if the post is already voted
-			for (var x=0;x<votedPosts.length;x++){
-				console.log(votedPosts[x]);
-				if (votedPosts[x]==post){
+			for (var x=0;x<votedIDS.length;x++){
+				console.log(votedIDS[x]);
+				if (votedIDS[x]==id){
 			    	isVoted=true; 
 				}
 			}  
@@ -32,23 +32,24 @@ $('[type=radio]').change(function() {
     			xmlhttp=new XMLHttpRequest();
     			xmlhttp.onreadystatechange=function() {
     			    if (this.readyState==4 && this.status==200) {
-    			      //$("#txtHint").html(this.responseText);
+    			    	//$("#txtHint").html(this.responseText);
     			      	console.log(this.responseText);
+    			      	
+    	    			//push array
+    	    			votedIDS.push(id);
+    	    			//Set SessionStorage
+    	    			localStorage.setItem('votedIDS',JSON.stringify(votedIDS));
+    	    			
+    	    			location.reload();
     			    	
     			    }
     			}
-    			var params="post="  + post + "&" + "rate=" + this.value;
+    			var params="id="  + id + "&" + "rate=" + this.value;
     
     			xmlhttp.open("POST","insertRate.php",true);
     			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
     			xmlhttp.send(params);
-    			//alert('New star rating: ' + this.value + ' and the post is: ' + post);
-    			//push array
-    			votedPosts.push(post);
-    			//Set SessionStorage
-    			localStorage.setItem('votedPosts',JSON.stringify(votedPosts));
     			
-    			location.reload();
 			}else{
 				alert('You already voted for this post');
 			}

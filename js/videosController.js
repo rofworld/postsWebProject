@@ -8,7 +8,7 @@
 			//Examine wether SessionStorage is set
 			if (localStorage.getItem('votedIDS')!=null){
     			
-    			var votedIDS = sessionStorage.getItem('votedIDS');
+    			var votedIDS = localStorage.getItem('votedIDS');
 			}
 
 			console.log("This are the already voted IDS:")
