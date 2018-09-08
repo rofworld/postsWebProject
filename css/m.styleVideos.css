@@ -1,0 +1,141 @@
+html, body
+{
+	height: 100%;
+}
+
+.rowPrincipal{
+	margin-top: 5%;
+	margin-left: 23%;
+}
+
+.row{
+	margin-top: 3%;
+	margin-left: 5%;
+}
+
+
+#addButton{
+	width:30%;
+	height:50px;
+	font-size: large;
+	margin-left: 6%;
+}
+
+#filePath{
+	width:40%;
+	height:50px;
+	resize: none;
+	margin-left: 2%;
+	background-color: white;
+}
+
+#fileUploadButton{
+	width:12%;
+	height:50px;
+	
+}
+
+.videoShow{
+	width:135px;
+	height:110px;
+}
+
+
+
+.table{
+	margin-top: 5%;
+}
+
+input[type="radio"] {
+    margin-left:10px;
+}
+
+.rateShowing{
+	whidth:25%;
+}
+
+.popup-content{
+  /*Hides pop-up content when there is no "active" class */
+ visibility:hidden;
+ 
+
+ 
+}
+
+.popup-content.active {
+  /*Shows pop-up content when "active" class is present */
+  visibility:visible;
+}
+
+.popup-overlay{
+  /*Hides pop-up when there is no "active" class*/
+  visibility:hidden;
+  text-align:center;
+  position:fixed;
+  background:#ffffff;
+  border:3px solid #666666;
+  width:50%;
+  height:50%;
+  top:25%;
+  left:25%;
+  
+  z-index: 1;
+ 
+}
+.popup-overlay.active{
+  /*displays pop-up when "active" class is present*/
+  visibility:visible;
+  
+}
+
+.loader {
+	display:block;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+   	margin-left:40%;
+   	margin-top:10%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.form{
+	top:70%;
+	height: 30%;
+	width:100%;
+	position: absolute;
+	margin-bottom: 8%;
+	border-style: solid;
+    border-width: 3px;
+	border-radius: 25px;
+	border-color: gray;
+}
+
+.tablePosts::-webkit-scrollbar { width: 0 ; }
+
+.tablePosts{
+	border-style: solid;
+    border-width: 3px;
+	border-radius: 25px;
+	border-color: gray;
+	height:55%;
+	width:100%;
+	overflow-y: auto;
+	overflow-x:hidden;
+	position:absolute;
+	
+	margin-top:3%;
+	
+}
+
+.table{
+	overflow-x:hidden;
+	margin-left: 5%;
+	
