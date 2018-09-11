@@ -16,14 +16,14 @@ html, body
 
 #addButton{
 	width:30%;
-	height:50px;
+	height:30%;
 	font-size: large;
 	margin-left: 6%;
 }
 
 #filePath{
 	width:40%;
-	height:50px;
+	height:30%;
 	resize: none;
 	margin-left: 2%;
 	background-color: white;
@@ -31,13 +31,13 @@ html, body
 
 #fileUploadButton{
 	width:12%;
-	height:50px;
+	height:30%;
 	
 }
 
 .videoShow{
-	width:135px;
-	height:110px;
+	width:130px;
+	height:100px;
 }
 
 
@@ -108,9 +108,10 @@ input[type="radio"] {
 
 .form{
 	top:70%;
-	height: 30%;
+	height: 35%;
 	width:100%;
-	position: absolute;
+	margin-top:8%;
+	/*position: absolute;*/
 	margin-bottom: 8%;
 	border-style: solid;
     border-width: 3px;
@@ -129,7 +130,7 @@ input[type="radio"] {
 	width:100%;
 	overflow-y: auto;
 	overflow-x:hidden;
-	position:absolute;
+	/*position:absolute;*/
 	
 	margin-top:3%;
 	

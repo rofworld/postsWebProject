@@ -16,7 +16,8 @@
 <link rel="stylesheet"  media="(min-width: 800px)"  href="css/style.css"/>
 <link rel="stylesheet"  media="(max-width: 800px)"  href="css/m.style.css"/>
 
-<link rel="stylesheet" href="css/rating.css"/>
+<link rel="stylesheet" media="(min-width: 800px)" href="css/rating.css"/>
+<link rel="stylesheet" media="(max-width: 800px)" href="css/m.rating.css"/>
 
 <title>Post of today ranking</title>
 

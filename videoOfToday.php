@@ -16,8 +16,8 @@
 <link rel="stylesheet" media="(min-width: 800px)" href="css/styleVideos.css"/>
 <link rel="stylesheet" media="(max-width: 800px)" href="css/m.styleVideos.css"/>
 
-
-<link rel="stylesheet" href="css/rating.css"/>
+<link rel="stylesheet" media="(min-width: 800px)" href="css/rating.css"/>
+<link rel="stylesheet" media="(max-width: 800px)" href="css/m.rating.css"/>
 
 <title>Video of today ranking</title>
 
