@@ -14,49 +14,39 @@
 <link rel="stylesheet" media="(max-width: 800px)" href="css/m.styleVideos.css"/>
 <link rel="stylesheet" href="css/rating.css"/>
 
-<title>Best Videos</title>
+<title>Top 100 Videos</title>
 
-<meta name="description" content="These are the best videos. The videos winners every day are moved to this section"/>
+<meta name="description" content="These are the Top 100 Videos. The most rated daily videos every day are moved to this section"/>
 
-<meta name="keywords" content="best videos, post of today best videos"/>
+<meta name="keywords" content="top 100 Videos, best videos"/>
 </head>
 
 
 <body>
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">PostOfToday</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Posts
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="postOfToday.php">Posts</a>
-              <a class="dropdown-item" href="bestPosts.php">Bests Posts</a>
-            </div>
-            
+          <li class="nav-item">
+            <a class="nav-link" href="videoOfToday.php">Daily Videos</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Videos
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="videoOfToday.php">Videos</a>
-              <a class="dropdown-item" href="bestVideos.php">Bests Videos</a>
-            </div>
-            
+         <li class="nav-item active">
+            <a class="nav-link" href="bestVideos.php">Top 100 Internet Videos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="uploadVideo.php">Upload Daily Video</a>
           </li>
         </ul>
       </div>
 	</nav>
+	
+	
 	<div class="row">	
 	<?php
     $servername = "localhost";

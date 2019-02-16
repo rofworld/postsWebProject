@@ -31,8 +31,8 @@
             $videoType = $_FILES['videoFile']['type'];
             
             
-            $sql = "INSERT INTO videoOfToday.videos (url,path,video_type,total_rate)
-        VALUES ('x1','x1','$videoType','0')";
+            $sql = "INSERT INTO videoOfToday.videos (url,path,video_type,total_rate,uploadDate)
+        VALUES ('x1','x1','$videoType','0',NOW())";
             
             
             if ($conn->query($sql) === FALSE) {

@@ -1,3 +1,9 @@
+<?php
+include 'pathVariables.php';
+include 'var_html_rate.php';
+?>
+<html>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -7,16 +13,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" media="(min-width: 800px)" href="css/styleIndex.css"/>
-<link rel="stylesheet" media="(max-width: 800px)" href="css/m.styleIndex.css"/>
+<link rel="stylesheet" media="(min-width: 800px)" href="css/styleVideos.css"/>
+<link rel="stylesheet" media="(max-width: 800px)" href="css/m.styleVideos.css"/>
 
+<link rel="stylesheet" media="(min-width: 800px)" href="css/rating.css"/>
+<link rel="stylesheet" media="(max-width: 800px)" href="css/m.rating.css"/>
 
-<title>Top 100 Internet Videos HomePage</title>
+<title>Upload Daily Videos</title>
 
-<meta name="description" content="This website is about videos. Daily Videos remain 24 hours in the server. User can rate videos and best videos are moved to the top 100 list"/>
+<meta name="description" content="You can upload your daily videos here"/>
 
 <meta name="keywords" content="daily videos, ranking videos, rate videos, top 100 Internet Videos"/>
 </head>
+
 
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,7 +34,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li class="nav-item">
@@ -34,32 +43,48 @@
          <li class="nav-item">
             <a class="nav-link" href="bestVideos.php">Top 100 Internet Videos</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="uploadVideo.php">Upload Daily Video</a>
           </li>
         </ul>
       </div>
 	</nav>
+	<div class="popup-overlay">
+        <!--Creates the popup content-->
+       	<div  class="popup-content">
+          <h2>Uploading video...</h2>
+          <div class="loader"></div>
+        </div>
+	</div>
 	
-	
-	
-	
-    <div class="row videos">
+	<div class="form">
+	<div class="row">
+		<h5>Upload your dayly video here (mp4, ogv, webm) MAX: 120Mbytes</h5>
+	</div>
+	<div class="row">
+		
+		
+		<button type="button" id="fileUploadButton" class="btn btn-primary">...</button>
+    
+    	<textarea class="form-control" rows="1" id="filePath" maxlength="200" disabled></textarea>
     	
-    	<a href="videoOfToday.php"><h1>Daily Videos</h1></a>
-    	<p>
-    	You can upload one video every day. I would like not to have porn videos or I will remove by myself. But you can upload
-    	videos about adventures, sports, music, humor or whatever you want. User videos are rated every day and the most voted are moved to the top 100 list. Daily videos will remain 24 hours in the server, so you have 24 hours to make your video appear in the top 100 list. Good Luck!
-    	</p>
+    	<button type="button" id="addButton" class="btn btn-primary">Add Video</button>
     	
-    </div>
-    <div class="row videos">
-    	<a href="bestVideos.php"><h1>Top 100 Internet Videos</h1></a>
-    	<p>
-    	Finally, we have the list of the top 100 Internet videos. These are the most rated videos in the history of this website.
-    	</p>
-    </div>	
+    	<input type="file" id="videoFile" style="display:none">
+    	
+    	
 	
-
+	</div> 
+	</div>
+	<!-- 
+	<div class="row">
+		<div id="txtHint"><b></b></div>
+	</div>
+	 -->
+	 
+<script src="js/videosController.js"></script>	
 </body>
+
+
+</html>
 
